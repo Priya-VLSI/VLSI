@@ -1,0 +1,6 @@
+// Code your design here
+module xorg_dataflow (A,B,Y);
+  input A,B;
+  output Y;
+  assign Y = A ^ B;
+endmodule
