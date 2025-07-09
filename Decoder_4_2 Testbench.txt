@@ -1,0 +1,17 @@
+// Code your testbench here
+// or browse Examples
+module decoder_4_2_tb;
+  reg A0,A1,A2,A3;
+  wire B0,B1;
+  decoder_4_2 decoder(A0,A1,A2,A3,B0,B1);
+  initial begin
+    $monitor("At time: %0t A0=%b A1=%b A2=%b A3=%b, B0=%b B1=%b",$time,A0,A1,A2,A3,B0,B1);
+    $dumpfile("decoder_4_2.vcd");
+    $dumpvars;
+    A0=1; A1=0; A2=0; A3=0; #1;
+    A0=0; A1=1; A2=0; A3=0; #1;
+    A0=0; A1=0; A2=1; A3=0; #1;
+    A0=0; A1=0; A2=0; A3=1;
+  end
+endmodule
+    
