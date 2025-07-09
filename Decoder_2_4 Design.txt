@@ -1,0 +1,10 @@
+// Code your design here
+module decoder_2_4(X0,X1,X2,X3,Y0,Y1);
+  input X0,X1,X2,X3;
+  output Y0,Y1;
+  assign Y0=~(X1 &X2);
+  assign Y1=~(X1) & X2;
+  assign Y2=X1&~X2;
+  assign Y3=X1&X2;
+endmodule
+  
