@@ -1,0 +1,16 @@
+// Code your testbench here
+// or browse Examples
+module decoder_2_4_tb;
+  reg X0,X1,X2,X3;
+  wire Y0,Y1;
+  decoder_2_4 decoder(X0,X1,X2,X3,Y0,Y1);
+  initial begin
+    $monitor("At time %0t: X0=%b X1=%b,X2=%b X3=%b Y0=%b Y1=%b",$time,X0,X1,X2,X3,Y0,Y1);
+    $dumpfile("encoder_2_4_tb.vcd");
+    $dumpvars;
+    X0=1; X1=0; X2=0; X3=0; #1;
+    X0=0; X1=1; X2=0; X3=0; #1;
+    X0=1; X1=0; X2=1; X3=0; #1;
+    X0=0; X1=0; X2=0; X3=1;
+  end
+endmodule
