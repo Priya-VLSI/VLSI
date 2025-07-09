@@ -1,0 +1,11 @@
+//Code your design here
+module encoder_2_4(X0,X1,Y0,Y1,Y2,Y3);
+  input X0,X1;
+  output Y0,Y1,Y2,Y3;
+  assign Y0=~(X0 & X1);
+  assign Y1=~(X0) & X1;
+  assign Y2=X0 & ~(X1);
+  assign Y3=X0 & X1;
+endmodule
+  
+  
