@@ -1,0 +1,21 @@
+module jk_ff_test;
+reg J,K,CLK;
+wire Q,Qbar;
+
+jk_ff_beh jk_ff_test(J,K,CLK,Q,Qbar);
+
+initial begin
+CLK=1;#10;
+CLK=0;#10;
+CLK=1;
+end
+initial begin
+$monitor($time,"J=%b,K=%b,CLK=%b,Q=%b,Qbar=%b",J,K,CLK,Q,Qbar);
+  $dumpfile("JK Flipflop.vcd");
+  $dumpvars;
+  J=0; K=0; #10;
+  J=0; K=1; #10;
+  J=1; K=0; #10;
+  J=1; K=1;
+end
+endmodule
