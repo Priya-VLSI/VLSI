@@ -1,0 +1,14 @@
+module jk_ff_beh(J,K,CLK,RST,Q,Qbar);
+output Q,Qbar;
+input  J,K,CLK,RST;
+reg  Q;
+always @(posedge CLK)
+
+begin 
+if (!RST) 
+Q <= 1'b0;
+else
+Q <= (J & ~Q)|(~K & Q); 
+end
+assign Qbar = ~ Q ;
+endmodule
