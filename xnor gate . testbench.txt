@@ -1,0 +1,15 @@
+module xnor_test;
+reg a,b;
+wire c;
+xnor_gate  xnor_test(c,a,b);
+initial
+begin
+$monitor($time,"a=%b,b=%b,c=%b",a,b,c);
+  $dumpfile("xnor gate.vcd");
+  $dumpvars;
+  a=0;b=0;#1;
+  a=0;b=1;#1;
+  a=1;b=0;#1;
+  a=1;b=1;
+end
+endmodule
