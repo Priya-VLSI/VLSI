@@ -1,0 +1,5 @@
+module nor_gate(c,a,b);
+input a,b;
+output c;
+nor (c,a,b);
+endmodule
