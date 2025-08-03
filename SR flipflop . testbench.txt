@@ -1,0 +1,22 @@
+module sr_ff_test;
+reg S,R,CLK;
+wire Q,Qbar;
+
+sr_ff_beh sr_ff_test(S,R,CLK,Q,Qbar);
+
+initial begin
+CLK=1; #10;
+CLK=0; #10;
+CLK=1;
+end
+initial
+begin
+$monitor($time,"S=%b,R=%b,CLK=%b,Q=%b,Qbar=%b",S,R,CLK,Q,Qbar);
+  $dumpfile("SR Flipflop.vcd");
+  $dumpvars;
+  S=0;R=0; #10;
+  S=0;R=1; #10;
+  S=1;R=0; #10;
+  S=1;R=1;
+end
+endmodule
