@@ -1,0 +1,23 @@
+module tb_clock_divider_50MHz_to_1Hz;
+  reg clk_in;
+  reg reset;
+  wire clk_out;
+  clock_divider_test DUT(
+    .clk_in(clk_in),
+    .reset(reset),
+    .clk_out(clk_out)
+  );
+  always #10 clk_in=~clk_in;
+  initial begin
+    $display("Starting Simulation....");
+    $dumpfile("clock_divider.vcd");
+    $dumpvars(0,tb_clock_divider_50MHz_to_1Hz);
+    clk_in=0;
+    reset=1;
+    #50;
+    reset=0;
+    #2000;
+    $display("Simulation finished");
+    $finish;
+  end
+endmodule
