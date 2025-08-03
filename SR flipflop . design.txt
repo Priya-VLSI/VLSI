@@ -1,0 +1,14 @@
+module sr_ff_beh(S,R,CLK,RST,Q,Qbar);
+output Q,Qbar;
+input  S,R,CLK,RST;
+reg  Q;
+always @(posedge CLK)
+
+begin
+  if (!RST)
+Q <= 1'b0;
+else
+Q <= (S)|(~R & Q);
+end
+assign Qbar = ~ Q ;
+endmodule
